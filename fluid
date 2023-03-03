@@ -56,7 +56,7 @@ NOTE "Done!"
 
 # Zip-it
 NOTE "Making archive..."
-cd ./build
+cd ./$BUILD_DIR
 zip -9 -r ../$NAME.zip .
 cd ..
 NOTE "Done!"
