@@ -32,7 +32,7 @@ fi
 
 # UNIX
 NOTE "Building for UNIX-like systems..."
-zip -9 -r ./$NAME.love . -i "$FILES"
+zip -9 -r ./$NAME.love . -i $FILES
 chmod +x ./$NAME.love
 mv ./$NAME.love ./$BUILD_DIR
 NOTE "Done!"
