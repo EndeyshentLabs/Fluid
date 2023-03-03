@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -eu
+
+function need() {
+	if [[ ! $(which $1) ]]; then
+		printf "$1 is needed to build this project!\n"
+		exit 1
+	fi
+}
+
+function NOTE() {
+	printf "[NOTE] $1\n"
+}
+
+function ERROR() {
+	printf "[ERROR] $1\n"
+	exit 1
+}
+
+need wget
+
+NOTE "THIS IS NOT FINAL PRODUCT. EVERYTHING MAY BE CHANGED."
+
+read -p "Name of the project: " proj_name
+
+if [[ -z "$proj_name" ]]; then
+	ERROR "Project name hasn't been provided!"
+fi
+
+read -p "Build directory: " build_dir
+
+if [[ -z "$build_dir" ]]; then
+	ERROR "Project name hasn't been provided!"
+fi
+
+printf "\n---------------\n"
+printf "Name: $proj_name\n"
+printf "Build directory: $build_dir\n"
+read -p "Is this configuration is suitable to you? (Y/n) " ans
+
+case $ans in
+	[Yy])
+		# wget https://raw.githubusercontent.com/EndeyshentLabs/Fluid-concept/main/fluid
+		printf "NAME=\"$proj_name\"\nBUILD_DIR=\"$build_dir\"\nFILES=\"*.lua\"\n# vim:set ft=zsh:\n" > config.fluid
+		NOTE "Do not forget to add your project files into config.fluid!"
+		;;
+	*)
+		printf "Abort.\n"
+		exit 1
+		;;
+esac
+
+# vim:set noet sw=4 ts=4 ft=zsh:
