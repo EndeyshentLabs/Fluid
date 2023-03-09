@@ -12,7 +12,7 @@ Build directory: <stdin> Build
 ---------------
 Name: CoolProj
 Build directory: Build
-Is this configuration is suitable to you? (Y/n) Y
+Is this configuration is suitable to you? (Y/n) <stdin> Y
 ... WGET STUFF ...
 [NOTE] Do not forget to add your project files into config.fluid!
 ```
@@ -25,4 +25,10 @@ If you have already initialized a project:
 
 ```console
 $ ./fluid
+```
+
+## Cleaning
+
+```console
+$ ./fluid clean
 ```
