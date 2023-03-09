@@ -19,8 +19,6 @@ function ERROR() {
 
 need wget
 
-NOTE "THIS IS NOT FINAL PRODUCT. EVERYTHING MAY BE CHANGED."
-
 read -p "Name of the project: " proj_name
 
 if [[ -z "$proj_name" ]]; then
@@ -40,7 +38,8 @@ read -p "Is this configuration is suitable to you? (Y/n) " ans
 
 case $ans in
 	[Yy])
-		wget https://raw.githubusercontent.com/EndeyshentLabs/Fluid-concept/main/fluid
+		wget https://raw.githubusercontent.com/EndeyshentLabs/Fluid/main/fluid
+		chmod +x fluid
 		printf "NAME=\"$proj_name\"\nBUILD_DIR=\"$build_dir\"\nFILES=\"*.lua\"\n# vim:set ft=zsh:\n" > config.fluid
 		NOTE "Do not forget to add your project files into config.fluid!"
 		;;
